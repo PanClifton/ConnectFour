@@ -22,12 +22,14 @@ namespace ConnectFour
             }
         }
 
-        public void Add(Counter counter, int columnNumber)
+        public bool Add(Counter counter, int columnNumber)
         {
             if (!_columns[columnNumber].IsFull())
             {
-                _columns[columnNumber].Add(counter);
+               return _columns[columnNumber].Add(counter);
             }
+
+            return false;
         }
 
         public void Display()

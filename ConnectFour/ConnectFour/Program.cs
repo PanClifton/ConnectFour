@@ -104,12 +104,14 @@ namespace ConnectFour
                 i++;
                 var randomColumn = rnd.Next(0, numberOfColumns);
 
-                board.Add(i % 2 == 0 ? new Counter(p1) : new Counter(p2), randomColumn);
+                if (board.Add(i % 2 == 0 ? new Counter(p1) : new Counter(p2), randomColumn))
+                {
+                    Thread.Sleep(TimeSpan.FromMilliseconds(320));
+                }
 
                 Console.WriteLine(string.Empty);
                 Console.Clear();
                 board.Display();
-                Thread.Sleep(TimeSpan.FromMilliseconds(220));
             }
             return Task.CompletedTask;
         }
