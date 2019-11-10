@@ -5,6 +5,7 @@ namespace ConnectFour
 {
     public class Board
     {
+        private const int WinnerLength = 4;
         private readonly Column[] _columns;
 
         private readonly int _numberOfRows;
@@ -79,6 +80,29 @@ namespace ConnectFour
             }
 
             return $"{firstBreak}{value}|";
+        }
+
+        public Player CheckWinner()
+        {
+            for (int i = 0; i < _numberOfColumns; i++)
+            {
+              
+            }
+
+            return null;
+        }
+
+        private Player CheckColumn(int index)
+        {
+            for (int i = 0; i < _columns.Length - WinnerLength; i++)
+            {
+                for (int j = i; j < WinnerLength; j++)
+                {
+
+                }
+            }
+
+            return null;
         }
 
     }

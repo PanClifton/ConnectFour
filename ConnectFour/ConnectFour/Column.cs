@@ -6,7 +6,7 @@ namespace ConnectFour
     public class Column
     {
         private int NumberOfRows { get; }
-        private Counter[] Counters { get; }
+        public Counter[] Counters { get; }
 
         public Column(int numberOfRows)
         {
