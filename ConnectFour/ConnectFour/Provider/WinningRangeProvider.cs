@@ -5,14 +5,21 @@ namespace ConnectFour.Provider
 {
     public class WinningRangeProvider
     {
-        public List<WinningRange> Provide(int length, int winningRangeLength)
+        private readonly int _winningRangeLength;
+
+        public WinningRangeProvider(int winningRangeLength)
         {
-            var numberOfWinningRangesInLength = length - winningRangeLength;
+            _winningRangeLength = winningRangeLength;
+        }
+
+        public List<WinningRange> Provide(int length)
+        {
+            var numberOfWinningRangesInLength = length - _winningRangeLength;
             var winningCases = new List<WinningRange>();
 
             for (int i = 0; i < numberOfWinningRangesInLength; i++)
             {
-                winningCases.Add(new WinningRange(i, i + winningRangeLength));
+                winningCases.Add(new WinningRange(i, i + _winningRangeLength));
             }
             return winningCases;
         }

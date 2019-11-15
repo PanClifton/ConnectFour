@@ -12,10 +12,8 @@ namespace ConnectFour.Test.ProviderTests
         public void Provide_WhenCalled_ShouldProvide(int arrayLength)
         {
             var winnigRangeLength = 3;
-            var sut = new WinningRangeProvider();
-            var result = sut.Provide(arrayLength, winnigRangeLength);
-
-            
+            var sut = new WinningRangeProvider(winnigRangeLength);
+            var result = sut.Provide(arrayLength);
         }
     }
 }

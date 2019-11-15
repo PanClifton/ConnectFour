@@ -50,7 +50,15 @@ namespace ConnectFour
 
         public bool IsFull()
         {
-            return Counters.All(x => x != null);
+            for (int i = 0; i < Counters.Length; i++)
+            {
+                if (Counters[i] == null)
+                {
+                    return false;
+                }
+            }
+
+            return true;
         }
     }
 }

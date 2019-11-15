@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Linq;
+using System.Reflection.Metadata.Ecma335;
+using ConnectFour.Provider;
 
 namespace ConnectFour
 {
@@ -11,6 +13,7 @@ namespace ConnectFour
         private readonly int _numberOfRows;
         private readonly int _numberOfColumns;
 
+        private readonly WinningRangeProvider _winningRangeProvider;
         public Board(int numberOfRows, int numberOfColumns)
         {
             _numberOfColumns = numberOfColumns;
@@ -21,6 +24,7 @@ namespace ConnectFour
             {
                 _columns[i] = new Column(numberOfRows);
             }
+            _winningRangeProvider = new WinningRangeProvider(WinnerRangeLength);
         }
 
         public bool Add(Counter counter, int columnNumber)
@@ -68,7 +72,14 @@ namespace ConnectFour
 
         public bool IsFull()
         {
-            return _columns.All(x => x.IsFull());
+            for (int i = 0; i < _columns.Length; i++)
+            {
+                if (!_columns[i].IsFull())
+                {
+                    return false;
+                }
+            }
+            return true;
         }
 
         private string GetCell(int i, string value)
@@ -83,27 +94,45 @@ namespace ConnectFour
         }
 
         public Player CheckWinner()
+        {           
+
+            return null;
+        }
+
+        private Player CheckColumns()
         {
             for (int i = 0; i < _numberOfColumns; i++)
             {
-              
+                CheckColumn(_columns[i]);
             }
-
             return null;
         }
 
-        private Player CheckColumn(int index)
+        private Player CheckColumn(Column column)
         {
-            for (int i = 0; i < _columns.Length - WinnerRangeLength; i++)
+            var winCases = _winningRangeProvider.Provide(column.Counters.Length);
+            foreach (var winCase in winCases)
             {
-                for (int j = i; j < WinnerRangeLength; j++)
-                {
-
-                }
+                
             }
-
             return null;
         }
 
+        private Player CheckFlatWinCase(WinningRange winningRange, Column column)
+        {
+            
+            for (int i = winningRange.StartIndex; i < winningRange.EndIndex; i++)
+            {
+                var player = column.Counters[i].Player;
+                if (player == null)
+                {
+                    return null;
+                }
+
+            }
+            return null;
+        }
+
+      
     }
 }
