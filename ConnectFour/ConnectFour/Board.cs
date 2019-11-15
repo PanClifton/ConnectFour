@@ -75,9 +75,9 @@ namespace ConnectFour
             // iterujesz przez columny
             for (int i = 0; i < _columns.Length; i++)
             {
-                // sprawdz czy dana kolumna o indexie i jest pelna wykorzystujac jej metode Is() full
-                // jezeli nie jest zwroc false
-                // ! znaczy negacja np NOT IsFull
+                // sprawdz czy dana kolumna o indexie 'i' jest pelna wykorzystujac jej metode Is() full
+                // jezeli nie jest zwracasz false
+                // ! znaczy negacja === NOT IsFull
                 if (!_columns[i].IsFull())
                 {
                     return false;
