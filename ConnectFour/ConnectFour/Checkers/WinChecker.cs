@@ -39,24 +39,25 @@ namespace ConnectFour.Checkers
         private Winner CheckColumn(Column column)
         {
             var horizontalCases = _winningRangeProvider.Provide(column.Counters.Length);
+
             foreach (var winCase in horizontalCases)
             {
-                for (int i = winCase.StartIndex; i < winCase.EndIndex; i++)
+                if (column.Counters[winCase.StartIndex] == null)
                 {
-                    if (column.Counters[i] == null)
-                    {
-                        return new Winner(false, default);
-                    }
-
-                    var arrayToCheck = column.Counters[winCase.StartIndex..winCase.EndIndex];
-                    var allSame = Array.TrueForAll(arrayToCheck, x => Equals(x, column.Counters[i]));
-                    if (allSame)
-                    {
-                        return new Winner(true, arrayToCheck[0].Player);
-                    }
+                    continue;
                 }
+
+                var arrayToCheck = column.Counters[winCase.StartIndex..winCase.EndIndex];
+                var allSame = Array.TrueForAll(arrayToCheck, x => x.Player == arrayToCheck[0].Player);
+               
+                if (allSame)
+                {
+                    return new Winner(true, arrayToCheck[0].Player);
+                }
+
             }
-            return new Winner(false, default); 
+            return new Winner(false, default);
         }
+      
     }
 }

@@ -113,14 +113,16 @@ namespace ConnectFour
                     Thread.Sleep(TimeSpan.FromMilliseconds(320));
                 }
 
-                var winner = board.GetWinner();
-                if (winner.IsWinner)
-                {
-                    Console.WriteLine(winner.Player.ToString());
-                }
+             
                 Console.WriteLine(string.Empty);
                 Console.Clear();
                 board.Display();
+                var winner = board.GetWinner();
+                if (winner.IsWinner)
+                {
+                    Console.WriteLine($"We have a winner. {winner.Player} !!!");
+                    return Task.CompletedTask;
+                }
             }
             return Task.CompletedTask;
         }

@@ -14,12 +14,12 @@ namespace ConnectFour.Provider
 
         public List<WinningRange> Provide(int length)
         {
-            var numberOfWinningRangesInLength = length - _winningRangeLength;
+            var numberOfWinningRangesInLength = length - _winningRangeLength + 1;
             var winningCases = new List<WinningRange>();
 
             for (int i = 0; i < numberOfWinningRangesInLength; i++)
             {
-                winningCases.Add(new WinningRange(i, i + _winningRangeLength));
+                winningCases.Add(new WinningRange(i, i + _winningRangeLength - 1));
             }
             return winningCases;
         }
