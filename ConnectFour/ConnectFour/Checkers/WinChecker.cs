@@ -1,6 +1,4 @@
-﻿
-using System;
-using System.Linq;
+﻿using System;
 using ConnectFour.Provider;
 
 namespace ConnectFour.Checkers
@@ -10,7 +8,6 @@ namespace ConnectFour.Checkers
         private const int WinnerRangeLength = 4;
         private readonly WinningRangeProvider _winningRangeProvider;
         private readonly Board _board;
-
 
         public WinChecker(Board board)
         {
@@ -47,12 +44,12 @@ namespace ConnectFour.Checkers
                     continue;
                 }
 
-                var arrayToCheck = column.Counters[winCase.StartIndex..winCase.EndIndex];
-                var allSame = Array.TrueForAll(arrayToCheck, x => x.Player == arrayToCheck[0].Player);
+                var caseToCheck = column.Counters[winCase.StartIndex..winCase.EndIndex];
+                var allSame = Array.TrueForAll(caseToCheck, x => x.Player == caseToCheck[0].Player);
                
                 if (allSame)
                 {
-                    return new Winner(true, arrayToCheck[0].Player);
+                    return new Winner(true, caseToCheck[0].Player);
                 }
 
             }
