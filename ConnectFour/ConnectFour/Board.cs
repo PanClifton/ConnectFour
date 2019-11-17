@@ -1,37 +1,36 @@
 ﻿using System;
 using System.Linq;
 using System.Reflection.Metadata.Ecma335;
+using ConnectFour.Checkers;
 using ConnectFour.Provider;
 
 namespace ConnectFour
 {
     public class Board
     {
-        private const int WinnerRangeLength = 4;
-        private readonly Column[] _columns;
+        private WinChecker _winChecker;
+        public Column[] Columns { get; }
 
-        private readonly int _numberOfRows;
-        private readonly int _numberOfColumns;
-
-        private readonly WinningRangeProvider _winningRangeProvider;
+        public int NumberOfRows { get; }
+        public int NumberOfColumns { get; }
         public Board(int numberOfRows, int numberOfColumns)
         {
-            _numberOfColumns = numberOfColumns;
-            _numberOfRows = numberOfRows;
+            NumberOfColumns = numberOfColumns;
+            NumberOfRows = numberOfRows;
 
-            _columns = new Column[numberOfColumns];
+            Columns = new Column[numberOfColumns];
             for (int i = 0; i < numberOfColumns; i++)
             {
-                _columns[i] = new Column(numberOfRows);
+                Columns[i] = new Column(numberOfRows);
             }
-            _winningRangeProvider = new WinningRangeProvider(WinnerRangeLength);
+            _winChecker = new WinChecker(this);
         }
 
         public bool Add(Counter counter, int columnNumber)
         {
-            if (!_columns[columnNumber].IsFull())
+            if (!Columns[columnNumber].IsFull())
             {
-               return _columns[columnNumber].Add(counter);
+                return Columns[columnNumber].Add(counter);
             }
 
             return false;
@@ -40,13 +39,13 @@ namespace ConnectFour
         public void Display()
         {
             var header = string.Empty;
-            for (int i = 0; i < _numberOfColumns; i++)
+            for (int i = 0; i < NumberOfColumns; i++)
             {
                 header = header + GetCell(i, i.ToString());
             }
 
             var lineUnderHeader = string.Empty;
-            for (int i = 0; i < _numberOfColumns; i++)
+            for (int i = 0; i < NumberOfColumns; i++)
             {
                 lineUnderHeader = lineUnderHeader + "--";
             }
@@ -59,12 +58,12 @@ namespace ConnectFour
 
         private void DisplayContent()
         {
-            for (int i = 0; i < _numberOfRows; i++)
+            for (int i = 0; i < NumberOfRows; i++)
             {
                 var row = string.Empty;
-                for (int j = 0; j < _numberOfColumns; j++)
+                for (int j = 0; j < NumberOfColumns; j++)
                 {
-                    row = row + GetCell(j, _columns[j].DisplayRow(i));
+                    row = row + GetCell(j, Columns[j].DisplayRow(i));
                 }
                 Console.WriteLine(row);
             }
@@ -73,12 +72,12 @@ namespace ConnectFour
         public bool IsFull()
         {
             // iterujesz przez columny
-            for (int i = 0; i < _columns.Length; i++)
+            for (int i = 0; i < Columns.Length; i++)
             {
                 // sprawdz czy dana kolumna o indexie 'i' jest pelna wykorzystujac jej metode Is() full
                 // jezeli nie jest zwracasz false
                 // ! znaczy negacja === NOT IsFull
-                if (!_columns[i].IsFull())
+                if (!Columns[i].IsFull())
                 {
                     return false;
                 }
@@ -98,46 +97,9 @@ namespace ConnectFour
             return $"{firstBreak}{value}|";
         }
 
-        public Player CheckWinner()
-        {           
-
-            return null;
-        }
-
-        private Player CheckColumns()
+        public Winner GetWinner()
         {
-            for (int i = 0; i < _numberOfColumns; i++)
-            {
-                CheckColumn(_columns[i]);
-            }
-            return null;
+            return _winChecker.Check();
         }
-
-        private Player CheckColumn(Column column)
-        {
-            var winCases = _winningRangeProvider.Provide(column.Counters.Length);
-            foreach (var winCase in winCases)
-            {
-                
-            }
-            return null;
-        }
-
-        private Player CheckFlatWinCase(WinningRange winningRange, Column column)
-        {
-            
-            for (int i = winningRange.StartIndex; i < winningRange.EndIndex; i++)
-            {
-                var player = column.Counters[i].Player;
-                if (player == null)
-                {
-                    return null;
-                }
-
-            }
-            return null;
-        }
-
-      
     }
 }

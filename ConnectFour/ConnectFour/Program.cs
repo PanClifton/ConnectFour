@@ -1,11 +1,15 @@
 ﻿using System;
 using System.Threading;
 using System.Threading.Tasks;
+using ConnectFour.Checkers;
 
 namespace ConnectFour
 {
     class Program
     {
+
+       
+
         static void Main(string[] args)
         {
             TestTask1();
@@ -91,7 +95,7 @@ namespace ConnectFour
         {
             Console.Clear();
             var numberOfColumns = 6;
-            var numberOfRows = 6;
+            var numberOfRows = 8;
             Board board = new Board(numberOfRows, numberOfColumns);
 
             Player p1 = new Player("Clive", 'o');
@@ -109,6 +113,11 @@ namespace ConnectFour
                     Thread.Sleep(TimeSpan.FromMilliseconds(320));
                 }
 
+                var winner = board.GetWinner();
+                if (winner.IsWinner)
+                {
+                    Console.WriteLine(winner.Player.ToString());
+                }
                 Console.WriteLine(string.Empty);
                 Console.Clear();
                 board.Display();
