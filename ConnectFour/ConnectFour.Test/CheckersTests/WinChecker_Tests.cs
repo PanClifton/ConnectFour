@@ -8,7 +8,7 @@ namespace ConnectFour.Test.CheckersTests
         [Fact]
         public void TestWin()
         {
-            Board board = new Board(6, 1);
+            Board board = new Board(6, 10);
             Player p1 = new Player("Clive", 'o');
 
             board.Add(new Counter(p1), 0);

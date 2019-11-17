@@ -35,18 +35,18 @@ namespace ConnectFour.Checkers
 
         private Winner CheckColumn(Column column)
         {
-            var horizontalCases = _winningRangeProvider.Provide(column.Counters.Length);
+            var verticalCases = _winningRangeProvider.Provide(column.Counters.Length);
 
-            foreach (var winCase in horizontalCases)
+            foreach (var winCase in verticalCases)
             {
                 if (column.Counters[winCase.StartIndex] == null)
                 {
                     continue;
                 }
 
-                var caseToCheck = column.Counters[winCase.StartIndex..winCase.EndIndex];
+                var caseToCheck = column.Counters[winCase.StartIndex..(winCase.EndIndex + 1)];
                 var allSame = Array.TrueForAll(caseToCheck, x => x.Player == caseToCheck[0].Player);
-               
+
                 if (allSame)
                 {
                     return new Winner(true, caseToCheck[0].Player);
@@ -55,6 +55,5 @@ namespace ConnectFour.Checkers
             }
             return new Winner(false, default);
         }
-      
     }
 }
