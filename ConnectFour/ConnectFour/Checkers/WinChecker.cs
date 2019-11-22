@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Security.Cryptography.X509Certificates;
 using ConnectFour.Provider;
 
 namespace ConnectFour.Checkers
@@ -18,6 +19,13 @@ namespace ConnectFour.Checkers
         public Winner Check()
         {
             return CheckColumns();
+        }
+
+        public Winner GetWinner(Position position)
+        {
+            bool checkHorizontalLeft = (position.X - WinnerRangeLength > 0);
+            bool checkHorizontalRight = (position.X + WinnerRangeLength < _board.NumberOfColumns);
+            return null;
         }
 
         private Winner CheckColumns()
