@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Reflection.Metadata.Ecma335;
 using ConnectFour.Checkers;
-using ConnectFour.Provider;
+using ConnectFour.Models;
 
 namespace ConnectFour
 {

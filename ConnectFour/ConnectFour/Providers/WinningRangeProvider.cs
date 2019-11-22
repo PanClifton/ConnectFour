@@ -1,7 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel;
+using ConnectFour.Models;
 
-namespace ConnectFour.Provider
+namespace ConnectFour.Providers
 {
     public class WinningRangeProvider
     {

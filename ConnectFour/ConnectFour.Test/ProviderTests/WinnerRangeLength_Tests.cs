@@ -1,4 +1,4 @@
-﻿using ConnectFour.Provider;
+﻿using ConnectFour.Providers;
 using FluentAssertions;
 using Xunit;
 

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Security.Cryptography.X509Certificates;
-using ConnectFour.Provider;
+using ConnectFour.Models;
+using ConnectFour.Providers;
 
 namespace ConnectFour.Checkers
 {

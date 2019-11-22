@@ -1,5 +1,5 @@
 ﻿
-namespace ConnectFour
+namespace ConnectFour.Models
 {
     public class Winner
     {
