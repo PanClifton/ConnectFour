@@ -14,26 +14,28 @@ namespace ConnectFour
             Counters = new Counter[numberOfRows];
         }
 
-        public bool Add(Counter counter)
+        public int Add(Counter counter)
         {
+            int index = 0;
             if (IsFull())
             {
-                return false;
+                return index;
             }
             for (int i = NumberOfRows; i > 0; i--)
             {
                 if (Counters[i - 1] == null)
                 {
                     Counters[i - 1] = counter;
+                    index = i - 1;
                     break;
                 }
             }
-            return true;
+            return index;
         }
 
         public Player GetPlayer(int index)
         {
-            return Counters[index].Player;
+            return Counters[index]?.Player;
         }
 
         public void Display()

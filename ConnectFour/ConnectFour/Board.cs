@@ -26,14 +26,16 @@ namespace ConnectFour
             _winChecker = new WinChecker(this);
         }
 
-        public bool Add(Counter counter, int columnNumber)
+        public Position Add(Counter counter, int columnNumber)
         {
+            int x = columnNumber;
+            int y = 0;
             if (!Columns[columnNumber].IsFull())
             {
-                return Columns[columnNumber].Add(counter);
+                y = Columns[columnNumber].Add(counter);
             }
 
-            return false;
+            return new Position(x, y);
         }
 
         public void Display()

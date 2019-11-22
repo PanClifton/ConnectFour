@@ -14,7 +14,7 @@ namespace ConnectFour.Test.ProviderTests
         {
             var board = new Board(6,6);
 
-            var position = new Position(3, 3);
+            var position = new Position(1, 5);
 
             var sut = new WinCheckContextProvider(board);
             var contextsToCheck = sut.Provide(position);

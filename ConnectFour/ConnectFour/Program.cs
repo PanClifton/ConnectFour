@@ -2,6 +2,7 @@
 using System.Threading;
 using System.Threading.Tasks;
 using ConnectFour.Checkers;
+using ConnectFour.Providers;
 
 namespace ConnectFour
 {
@@ -45,7 +46,7 @@ namespace ConnectFour
             Column column = new Column(number);
             for (int i = 0; i < number + 1; i++)
             {
-                bool result = column.Add(new Counter(p1));
+                var result = column.Add(new Counter(p1));
                 Console.WriteLine(result);
             }
         }
@@ -92,9 +93,9 @@ namespace ConnectFour
         {
             Console.Clear();
             var numberOfColumns = 6;
-            var numberOfRows = 8;
+            var numberOfRows = 6;
             Board board = new Board(numberOfRows, numberOfColumns);
-
+            var winProvider = new WinProvider(board);
             Player p1 = new Player("Clive", 'o');
             Player p2 = new Player("Sharon", 'x');
 
@@ -105,16 +106,17 @@ namespace ConnectFour
                 i++;
                 var randomColumn = rnd.Next(0, numberOfColumns);
 
-                if (board.Add(i % 2 == 0 ? new Counter(p1) : new Counter(p2), randomColumn))
+                var position = board.Add(i % 2 == 0 ? new Counter(p1) : new Counter(p2), randomColumn);
                 {
                     Thread.Sleep(TimeSpan.FromMilliseconds(320));
                 }
 
-             
+
                 Console.WriteLine(string.Empty);
                 Console.Clear();
                 board.Display();
-                var winner = board.GetWinner();
+                //var winner = board.GetWinner();
+                var winner = winProvider.Provide(position);
                 if (winner.IsWinner)
                 {
                     Console.WriteLine($"We have a winner. {winner.Player} !!!");

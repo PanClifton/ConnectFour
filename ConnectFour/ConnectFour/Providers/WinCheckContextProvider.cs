@@ -36,12 +36,14 @@ namespace ConnectFour.Providers
                 winCheckContext.Add(GetVertical(position));
             }
             //left axis
-            if (position.Y + WinningRangeLength <= _height + 1 && position.X - WinningRangeLength >= -1)
+            if (position.Y + WinningRangeLength <= _height + 1 
+                && position.X - WinningRangeLength >= -1)
             {
                 winCheckContext.Add(GetLeftAxis(position));
             }
             //right axis
-            if (position.Y + WinningRangeLength <= _height + 1 && position.X + WinningRangeLength >= _length)
+            if (position.Y + WinningRangeLength <= _height + 1 
+                && position.X + WinningRangeLength >= _length)
             {
                 winCheckContext.Add(GetRightAxis(position));
             }

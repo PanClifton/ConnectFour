@@ -39,13 +39,13 @@ namespace ConnectFour.Checkers
                     return winner;
                 }
             }
-            return new Winner(false, default);
+            return new Winner();
         }
 
         private Winner CheckColumn(Column column)
         {
             var verticalCases = _winningRangeProvider.Provide(column.Counters.Length);
-
+            var winner = new Winner();
             foreach (var winCase in verticalCases)
             {
                 if (column.Counters[winCase.StartIndex] == null)
@@ -58,11 +58,11 @@ namespace ConnectFour.Checkers
 
                 if (allSame)
                 {
-                    return new Winner(true, caseToCheck[0].Player);
+                   // return new Winner(true, caseToCheck[0].Player);
                 }
 
             }
-            return new Winner(false, default);
+            return new Winner();
         }
     }
 }
