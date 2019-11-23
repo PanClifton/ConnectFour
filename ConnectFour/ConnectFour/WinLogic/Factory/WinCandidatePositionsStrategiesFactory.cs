@@ -18,6 +18,5 @@ namespace ConnectFour.WinLogic.Factory
                 new VerticalCandidatePositionsStrategy(height, length)
             };
         }
-
     }
 }

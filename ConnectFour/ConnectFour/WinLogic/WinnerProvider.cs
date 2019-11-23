@@ -21,8 +21,23 @@ namespace ConnectFour.WinLogic
             _winCasesAnalyzer = new WinCasesAnalyzer();
             _board = board;
         }
+        
+        public Winner Provide()
+        {
+            for (int columnIndex = 0; columnIndex < _board.NumberOfColumns; columnIndex++)
+            {
+                for (int rowIndex = 0; rowIndex < _board.NumberOfRows; rowIndex++)
+                {
+                    var winner = Provide(new Point(columnIndex, rowIndex));
+                    if (winner.IsWinner)
+                        return winner;
+                }
+            }
 
-        public Winner Provide(Point point)
+            return new Winner(false, default);
+        }
+
+        private Winner Provide(Point point)
         {
             var winCandidates = _winCandidateProvider.Provide(point);
             var winCases = new List<WinCase>();
@@ -32,7 +47,7 @@ namespace ConnectFour.WinLogic
                 var winCase = new WinCase(players);
                 winCases.Add(winCase);
             }
-            
+
             return _winCasesAnalyzer.GetWinner(winCases);
         }
     }

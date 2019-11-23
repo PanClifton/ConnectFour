@@ -91,8 +91,8 @@ namespace ConnectFour
         static Task Task4()
         {
             Console.Clear();
-            var numberOfColumns = 6;
-            var numberOfRows = 6;
+            var numberOfColumns = 8;
+            var numberOfRows = 9;
             Board board = new Board(numberOfRows, numberOfColumns);
 
             Player p1 = new Player("Clive", 'O');
@@ -116,7 +116,7 @@ namespace ConnectFour
                     Console.WriteLine(string.Empty);
                     Console.Clear();
                     board.Display();
-                    var winner = winnerProvider.Provide(position);
+                    var winner = winnerProvider.Provide();
                     if (winner.IsWinner)
                     {
                         Console.WriteLine($"We have a winner!!! Congrats {winner.Player.Name}, '{winner.Player.Counter}' !!!");

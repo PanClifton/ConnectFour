@@ -17,6 +17,5 @@ namespace ConnectFour.WinLogic.WinCandidatesStrategies
         }
 
         public abstract List<Point> GetCandidates(Point point);
-
     }
 }
