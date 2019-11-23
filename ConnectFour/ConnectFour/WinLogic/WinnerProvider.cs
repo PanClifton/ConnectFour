@@ -33,7 +33,7 @@ namespace ConnectFour.WinLogic
                 }
             }
 
-            return new Winner(false, default);
+            return Winner.NoWinner;
         }
 
         private Winner Provide(Point point)

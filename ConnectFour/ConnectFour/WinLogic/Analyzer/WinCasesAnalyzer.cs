@@ -18,7 +18,7 @@ namespace ConnectFour.WinLogic.Analyzer
                 return winner;
             }
 
-            return new Winner(false, default);
+            return Winner.NoWinner;
         }
 
         public Winner CheckCase(WinCase winCase)
@@ -28,7 +28,7 @@ namespace ConnectFour.WinLogic.Analyzer
             {
                 return new Winner(true, winCase.Players[0]);
             }
-            return new Winner(false, default);
+            return Winner.NoWinner;
         }
     }
 }
