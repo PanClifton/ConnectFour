@@ -4,7 +4,7 @@ using ConnectFour.WinCandidatesStrategies;
 
 namespace ConnectFour.Providers
 {
-    public class WinCandidatePositionsProvider
+    public class WinCandidatePositionsProvider : IWinCandidatePositionsProvider
     {
         private readonly List<IWiningCandidatePositionsStrategy> _winCandidatePositionsStrategies;
 
