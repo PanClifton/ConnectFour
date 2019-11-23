@@ -18,6 +18,10 @@ namespace ConnectFour.WinCandidatesStrategies
             {
                 pointsToCheck.AddRange(Get(point));
             }
+            else
+            {
+                return default;
+            }
             return pointsToCheck;
         }
 

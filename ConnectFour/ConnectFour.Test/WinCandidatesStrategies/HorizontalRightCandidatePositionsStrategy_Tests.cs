@@ -51,17 +51,17 @@ namespace ConnectFour.Test.WinCandidatesStrategies
             yield return new object[]
             {
                 new Point(3, 1),
-                new List<Point>()
+                default
             };
             yield return new object[]
             {
                 new Point(4, 1),
-                new List<Point>()
+                default
             };
             yield return new object[]
             {
                 new Point(5, 1),
-                new List<Point>()
+                default
             };
         }
 

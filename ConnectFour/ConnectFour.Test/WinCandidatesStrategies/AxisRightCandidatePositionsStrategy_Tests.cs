@@ -12,23 +12,6 @@ namespace ConnectFour.Test.WinCandidatesStrategies
     {
         public static IEnumerable<object[]> GetPoints()
         {
-            yield return new object[]
-            {
-                new Point(5, 1),
-                new List<Point>()
-            };
-
-            yield return new object[]
-            {
-                new Point(4, 1),
-                new List<Point>()
-            };
-
-            yield return new object[]
-            {
-                new Point(3, 1),
-                new List<Point>()
-            };
 
             yield return new object[]
             {
@@ -64,6 +47,24 @@ namespace ConnectFour.Test.WinCandidatesStrategies
                     new Point(2, 3),
                     new Point(3, 4),
                 }
+            };
+
+            yield return new object[]
+            {
+                new Point(5, 1),
+                default
+            };
+
+            yield return new object[]
+            {
+                new Point(4, 1),
+                default
+            };
+
+            yield return new object[]
+            {
+                new Point(3, 1),
+                default
             };
         }
 
