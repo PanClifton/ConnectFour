@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.Text;
 using ConnectFour.Models;
-using ConnectFour.Strategy;
+using ConnectFour.WinCandidatesStrategies;
 using FluentAssertions;
 using Xunit;
 
-namespace ConnectFour.Test.Strategies
+namespace ConnectFour.Test.WinCandidatesStrategies
 {
     public class HorizontalLeftCandidatePositionsStrategy_Tests
     {

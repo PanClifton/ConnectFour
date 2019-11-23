@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Security.Cryptography.X509Certificates;
-using System.Text;
+﻿using System.Collections.Generic;
 using ConnectFour.Models;
 
-namespace ConnectFour.Strategy
+namespace ConnectFour.WinCandidatesStrategies
 {
     public abstract class WiningCandidatePositionsStrategy : IWiningCandidatePositionsStrategy
     {
