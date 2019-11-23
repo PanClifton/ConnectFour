@@ -1,11 +1,11 @@
 ﻿using System.Collections.Generic;
 using ConnectFour.Models;
 
-namespace ConnectFour.WinCandidatesStrategies
+namespace ConnectFour.WinLogic.WinCandidatesStrategies
 {
-    public class AxisRightCandidatePositionsStrategy : WiningCandidatePositionsStrategy
+    public class HorizontalRightCandidatePositionsStrategy : WiningCandidatePositionsStrategy
     {
-        public AxisRightCandidatePositionsStrategy(int height, int length) : base(height, length)
+        public HorizontalRightCandidatePositionsStrategy(int height, int length) : base(height, length)
         {
 
         }
@@ -13,8 +13,7 @@ namespace ConnectFour.WinCandidatesStrategies
         public override List<Point> GetCandidates(Point point)
         {
             var pointsToCheck = new List<Point>();
-            if (point.X + WinningRangeLength - 1 < Length 
-                && point.Y + WinningRangeLength <= Height)
+            if (point.X + WinningRangeLength - 1 < Length)
             {
                 pointsToCheck.AddRange(Get(point));
             }
@@ -30,7 +29,7 @@ namespace ConnectFour.WinCandidatesStrategies
             var pointsToCheck = new List<Point>();
             for (int i = 0; i < WinningRangeLength; i++)
             {
-                pointsToCheck.Add(new Point(point.X + i, point.Y + i));
+                pointsToCheck.Add(new Point(point.X + i, point.Y));
             }
             return pointsToCheck;
         }

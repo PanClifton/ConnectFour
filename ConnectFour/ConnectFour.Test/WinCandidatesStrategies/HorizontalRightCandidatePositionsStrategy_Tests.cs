@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using ConnectFour.Models;
-using ConnectFour.WinCandidatesStrategies;
+using ConnectFour.WinLogic.WinCandidatesStrategies;
 using FluentAssertions;
 using Xunit;
 

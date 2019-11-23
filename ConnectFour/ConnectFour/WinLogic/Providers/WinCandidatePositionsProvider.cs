@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using ConnectFour.Models;
-using ConnectFour.WinCandidatesStrategies;
+using ConnectFour.WinLogic.WinCandidatesStrategies;
 
-namespace ConnectFour.Providers
+namespace ConnectFour.WinLogic.Providers
 {
     public class WinCandidatePositionsProvider : IWinCaseProvider
     {

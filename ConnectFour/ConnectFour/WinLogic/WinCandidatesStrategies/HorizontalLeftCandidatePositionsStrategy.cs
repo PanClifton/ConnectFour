@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using ConnectFour.Models;
 
-namespace ConnectFour.WinCandidatesStrategies
+namespace ConnectFour.WinLogic.WinCandidatesStrategies
 {
     public class HorizontalLeftCandidatePositionsStrategy : WiningCandidatePositionsStrategy
     {

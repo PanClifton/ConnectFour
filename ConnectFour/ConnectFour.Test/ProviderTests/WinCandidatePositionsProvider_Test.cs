@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using ConnectFour.Factory;
 using ConnectFour.Models;
-using ConnectFour.Providers;
+using ConnectFour.WinLogic.Factory;
+using ConnectFour.WinLogic.Providers;
 using Xunit;
 
 namespace ConnectFour.Test.ProviderTests

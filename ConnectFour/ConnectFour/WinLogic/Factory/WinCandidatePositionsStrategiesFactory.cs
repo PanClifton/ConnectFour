@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
-using ConnectFour.WinCandidatesStrategies;
+using ConnectFour.WinLogic.WinCandidatesStrategies;
 
-namespace ConnectFour.Factory
+namespace ConnectFour.WinLogic.Factory
 {
     public class WinCandidatePositionsStrategiesFactory
     {
