@@ -13,6 +13,7 @@ namespace ConnectFour.WinLogic
         private readonly IWinCandidateProvider _winCandidateProvider;
         private readonly Board _board;
         private readonly WinCasesAnalyzer _winCasesAnalyzer;
+
         public WinnerProvider(Board board)
         {
             var factory = new WinCandidatePositionsStrategiesFactory(board.NumberOfRows, board.NumberOfColumns);
