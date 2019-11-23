@@ -5,6 +5,6 @@ namespace ConnectFour.WinLogic.Providers
 {
     public interface IWinCaseProvider
     {
-        IEnumerable<WinCase> Provide(Point point);
+        IEnumerable<WinCandidate> Provide(Point point);
     }
 }

@@ -13,9 +13,9 @@ namespace ConnectFour.WinLogic.Providers
             _winCandidatePositionsStrategies = winingCandidatePositionsStrategies;
         }
 
-        public IEnumerable<WinCase> Provide(Point point)
+        public IEnumerable<WinCandidate> Provide(Point point)
         {
-            var winCases = new List<WinCase>();
+            var winCases = new List<WinCandidate>();
             foreach (var strategy in _winCandidatePositionsStrategies)
             {
                 var candidates = strategy.GetCandidates(point);
@@ -23,7 +23,7 @@ namespace ConnectFour.WinLogic.Providers
                 {
                     continue;
                 }
-                var winCase = new WinCase(strategy.GetCandidates(point));
+                var winCase = new WinCandidate(strategy.GetCandidates(point));
                 winCases.Add(winCase);
             }
             return winCases;

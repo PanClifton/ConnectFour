@@ -4,11 +4,11 @@ using System.Text;
 
 namespace ConnectFour.Models
 {
-    public class WinCase
+    public class WinCandidate
     {
         public List<Point> WinCandidatePositions { get; }
 
-        public WinCase(List<Point> winPositions)
+        public WinCandidate(List<Point> winPositions)
         {
             WinCandidatePositions = winPositions;
         }
