@@ -53,13 +53,13 @@ namespace ConnectFour.Checkers
                     continue;
                 }
 
-                var caseToCheck = column.Counters[winCase.StartIndex..(winCase.EndIndex + 1)];
-                var allSame = Array.TrueForAll(caseToCheck, x => x.Player == caseToCheck[0].Player);
+//                var caseToCheck = column.Counters[winCase.StartIndex..(winCase.EndIndex + 1)];
+//                var allSame = Array.TrueForAll(caseToCheck, x => x.Player == caseToCheck[0].Player);
 
-                if (allSame)
-                {
-                   // return new Winner(true, caseToCheck[0].Player);
-                }
+//                if (allSame)
+//                {
+//                   // return new Winner(true, caseToCheck[0].Player);
+//                }
 
             }
             return new Winner();
