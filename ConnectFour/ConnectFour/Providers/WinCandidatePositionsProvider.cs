@@ -18,6 +18,11 @@ namespace ConnectFour.Providers
             var winCases = new List<WinCase>();
             foreach (var strategy in _winCandidatePositionsStrategies)
             {
+                var candidates = strategy.GetCandidates(point);
+                if (candidates == default)
+                {
+                    continue;
+                }
                 var winCase = new WinCase(strategy.GetCandidates(point));
                 winCases.Add(winCase);
             }
