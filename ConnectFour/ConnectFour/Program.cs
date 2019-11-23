@@ -91,7 +91,7 @@ namespace ConnectFour
         static Task Task4()
         {
             Console.Clear();
-            var numberOfColumns = 8;
+            var numberOfColumns = 34;
             var numberOfRows = 9;
             Board board = new Board(numberOfRows, numberOfColumns);
 

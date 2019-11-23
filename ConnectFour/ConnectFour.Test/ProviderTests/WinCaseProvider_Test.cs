@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using ConnectFour.Models;
+﻿using ConnectFour.Models;
 using ConnectFour.WinLogic.Factory;
 using ConnectFour.WinLogic.Providers;
 using Xunit;
