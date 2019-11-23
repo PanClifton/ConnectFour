@@ -19,7 +19,6 @@ namespace ConnectFour.Strategy
             {
                 pointsToCheck.AddRange(Get(point));
             }
-
             return pointsToCheck;
         }
 

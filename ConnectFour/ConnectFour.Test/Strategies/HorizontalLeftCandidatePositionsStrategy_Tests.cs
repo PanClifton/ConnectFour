@@ -14,9 +14,23 @@ namespace ConnectFour.Test.Strategies
         {
             yield return new object[]
             {
-                new Point(2, 1),
+                new Point(5, 1),
                 new List<Point>()
                 {
+                    new Point(5,1),
+                    new Point(4,1),
+                    new Point(3,1),
+                    new Point(2,1)
+                }
+            };
+
+            yield return new object[]
+            {
+                new Point(4, 1),
+                new List<Point>()
+                {
+                    new Point(4,1),
+                    new Point(3,1),
                     new Point(2,1),
                     new Point(1,1)
                 }
@@ -24,13 +38,16 @@ namespace ConnectFour.Test.Strategies
 
             yield return new object[]
             {
-                new Point(1, 1),
+                new Point(3, 1),
                 new List<Point>()
                 {
+                    new Point(3,1),
+                    new Point(2,1),
                     new Point(1,1),
                     new Point(0,1)
                 }
             };
+
             yield return new object[]
             {
                 new Point(0, 1),
@@ -42,7 +59,7 @@ namespace ConnectFour.Test.Strategies
         [MemberData(nameof(GetPoints))]
         public void GetCandidates_WhenCalled_ShouldReturnExpectedValues(Point currentPosition, List<Point> expectedResult)
         {
-            var sut = new HorizontalLeftCandidatePositionsStrategy(3, 3);
+            var sut = new HorizontalLeftCandidatePositionsStrategy(6, 6);
 
             var candidates = sut.GetCandidates(currentPosition);
             candidates.Should().BeEquivalentTo(expectedResult);

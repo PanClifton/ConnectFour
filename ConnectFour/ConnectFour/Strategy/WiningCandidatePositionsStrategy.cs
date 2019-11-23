@@ -11,7 +11,7 @@ namespace ConnectFour.Strategy
         protected readonly int Height;
         protected readonly int Length;
 
-        protected const int WinningRangeLength = 2;
+        protected const int WinningRangeLength = 4;
 
         protected WiningCandidatePositionsStrategy(int height, int length)
         {
