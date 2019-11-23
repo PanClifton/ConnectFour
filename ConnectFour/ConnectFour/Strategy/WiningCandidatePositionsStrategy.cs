@@ -11,7 +11,7 @@ namespace ConnectFour.Strategy
         protected readonly int Height;
         protected readonly int Length;
 
-        protected const int WinningRangeLength = 4;
+        protected const int WinningRangeLength = 2;
 
         protected WiningCandidatePositionsStrategy(int height, int length)
         {
@@ -19,7 +19,7 @@ namespace ConnectFour.Strategy
             Length = length;
         }
 
-        public abstract IEnumerable<Point> GetPoints(Point point);
+        public abstract IEnumerable<Point> GetCandidates(Point point);
 
     }
 }

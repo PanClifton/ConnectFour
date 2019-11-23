@@ -21,8 +21,5 @@
   <ItemGroup>
     <ProjectReference Include="..\ConnectFour\ConnectFour.csproj" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Startegies\" />
-  </ItemGroup>
 
 </Project>

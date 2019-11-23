@@ -12,12 +12,12 @@ namespace ConnectFour.Strategy
 
         }
 
-        public override IEnumerable<Point> GetPoints(Point point)
+        public override IEnumerable<Point> GetCandidates(Point point)
         {
             var pointsToCheck = new List<Point>();
             if (point.X - WinningRangeLength + 1 >= 0)
             {
-                pointsToCheck.AddRange(GetPoints(point));
+                pointsToCheck.AddRange(Get(point));
             }
 
             return pointsToCheck;
@@ -32,6 +32,5 @@ namespace ConnectFour.Strategy
             }
             return pointsToCheck;
         }
-
     }
 }
