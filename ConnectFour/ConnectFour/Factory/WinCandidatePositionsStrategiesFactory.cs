@@ -5,11 +5,11 @@ using ConnectFour.WinCandidatesStrategies;
 
 namespace ConnectFour.Factory
 {
-    public class WinCandidatesStrategiesFactory
+    public class WinCandidatePositionsStrategiesFactory
     {
         public List<IWiningCandidatePositionsStrategy> Strategies { get; }
 
-        public WinCandidatesStrategiesFactory(int height, int length)
+        public WinCandidatePositionsStrategiesFactory(int height, int length)
         {
             Strategies = new List<IWiningCandidatePositionsStrategy>
             {
