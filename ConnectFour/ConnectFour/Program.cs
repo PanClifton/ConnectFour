@@ -10,10 +10,10 @@ namespace ConnectFour
     {
         static void Main(string[] args)
         {
-            TestTask1();
-            TestTask2a();
-            TestTask2e();
-            TestTask3();
+//            TestTask1();
+//            TestTask2a();
+//            TestTask2e();
+//            TestTask3();
 
             Main().GetAwaiter().GetResult();
         }

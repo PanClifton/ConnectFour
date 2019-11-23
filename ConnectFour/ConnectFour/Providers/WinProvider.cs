@@ -48,9 +48,13 @@ namespace ConnectFour.Providers
                 players.Add(player);
             }
 
-            if (players.Any(o => o != players[0]))
+            if (players.Count == 4)
             {
                 winner.Update(new Winner(true, players[0]));
+            }
+            if (players.Any(o => o != players[0]))
+            {
+               
             }
 
             return winner;

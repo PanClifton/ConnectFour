@@ -21,32 +21,32 @@ namespace ConnectFour.Providers
         {
             var winCheckContext = new List<WinCheckContext>();
             // left horizontal
-            if (position.X - WinningRangeLength >= -1)
+            if (position.X - WinningRangeLength + 1 >= 0)
             {
                 winCheckContext.Add(GetLeftHorizontal(position));
             }
             //right horizontal
-            if (position.X + WinningRangeLength >= _length)
+            if (position.X + WinningRangeLength - 1 <= _length)
             {
                 winCheckContext.Add(GetRightHorizontal(position));
             }
-            //vertical
-            if (position.Y + WinningRangeLength <= _height + 1)
-            {
-                winCheckContext.Add(GetVertical(position));
-            }
-            //left axis
-            if (position.Y + WinningRangeLength <= _height + 1 
-                && position.X - WinningRangeLength >= -1)
-            {
-                winCheckContext.Add(GetLeftAxis(position));
-            }
-            //right axis
-            if (position.Y + WinningRangeLength <= _height + 1 
-                && position.X + WinningRangeLength >= _length)
-            {
-                winCheckContext.Add(GetRightAxis(position));
-            }
+            //            //vertical
+            //            if (position.Y + WinningRangeLength <= _height + 1)
+            //            {
+            //                winCheckContext.Add(GetVertical(position));
+            //            }
+            //            //left axis
+            //            if (position.Y + WinningRangeLength <= _height + 1 
+            //                && position.X - WinningRangeLength >= -1)
+            //            {
+            //                winCheckContext.Add(GetLeftAxis(position));
+            //            }
+            //            //right axis
+            //            if (position.Y + WinningRangeLength <= _height + 1 
+            //                && position.X + WinningRangeLength >= _length)
+            //            {
+            //                winCheckContext.Add(GetRightAxis(position));
+            //            }
             return winCheckContext;
         }
 
