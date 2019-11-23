@@ -22,10 +22,10 @@ namespace ConnectFour.Checkers
             return CheckColumns();
         }
 
-        public Winner GetWinner(Position position)
+        public Winner GetWinner(Point point)
         {
-            bool checkHorizontalLeft = (position.X - WinnerRangeLength > 0);
-            bool checkHorizontalRight = (position.X + WinnerRangeLength < _board.NumberOfColumns);
+            bool checkHorizontalLeft = (point.X - WinnerRangeLength > 0);
+            bool checkHorizontalRight = (point.X + WinnerRangeLength < _board.NumberOfColumns);
             return null;
         }
 

@@ -17,85 +17,85 @@ namespace ConnectFour.Providers
             _length = board.NumberOfColumns;
         }
 
-        public List<WinCheckContext> Provide(Position position)
+        public List<WinCheckContext> Provide(Point point)
         {
             var winCheckContext = new List<WinCheckContext>();
             // left horizontal
-            if (position.X - WinningRangeLength + 1 >= 0)
+            if (point.X - WinningRangeLength + 1 >= 0)
             {
-                winCheckContext.Add(GetLeftHorizontal(position));
+                winCheckContext.Add(GetLeftHorizontal(point));
             }
             //right horizontal
-            if (position.X + WinningRangeLength - 1 <= _length)
+            if (point.X + WinningRangeLength - 1 <= _length)
             {
-                winCheckContext.Add(GetRightHorizontal(position));
+                winCheckContext.Add(GetRightHorizontal(point));
             }
             //            //vertical
-            //            if (position.Y + WinningRangeLength <= _height + 1)
+            //            if (point.Y + WinningRangeLength <= _height + 1)
             //            {
-            //                winCheckContext.Add(GetVertical(position));
+            //                winCheckContext.Add(GetVertical(point));
             //            }
             //            //left axis
-            //            if (position.Y + WinningRangeLength <= _height + 1 
-            //                && position.X - WinningRangeLength >= -1)
+            //            if (point.Y + WinningRangeLength <= _height + 1 
+            //                && point.X - WinningRangeLength >= -1)
             //            {
-            //                winCheckContext.Add(GetLeftAxis(position));
+            //                winCheckContext.Add(GetLeftAxis(point));
             //            }
             //            //right axis
-            //            if (position.Y + WinningRangeLength <= _height + 1 
-            //                && position.X + WinningRangeLength >= _length)
+            //            if (point.Y + WinningRangeLength <= _height + 1 
+            //                && point.X + WinningRangeLength >= _length)
             //            {
-            //                winCheckContext.Add(GetRightAxis(position));
+            //                winCheckContext.Add(GetRightAxis(point));
             //            }
             return winCheckContext;
         }
 
-        private WinCheckContext GetLeftHorizontal(Position position)
+        private WinCheckContext GetLeftHorizontal(Point point)
         {
             var winCheckContext = new WinCheckContext();
             for (int i = 0; i < WinningRangeLength; i++)
             {
-                winCheckContext.AddPositionToCheck(new Position(position.X - i, position.Y));
+                winCheckContext.AddPositionToCheck(new Point(point.X - i, point.Y));
             }
             return winCheckContext;
         }
 
-        private WinCheckContext GetRightHorizontal(Position position)
+        private WinCheckContext GetRightHorizontal(Point point)
         {
             var winCheckContext = new WinCheckContext();
             for (int i = 0; i < WinningRangeLength; i++)
             {
-                winCheckContext.AddPositionToCheck(new Position(position.X + i, position.Y));
+                winCheckContext.AddPositionToCheck(new Point(point.X + i, point.Y));
             }
             return winCheckContext;
         }
 
-        private WinCheckContext GetVertical(Position position)
+        private WinCheckContext GetVertical(Point point)
         {
             var winCheckContext = new WinCheckContext();
             for (int i = 0; i < WinningRangeLength; i++)
             {
-                winCheckContext.AddPositionToCheck(new Position(position.X, position.Y + i));
+                winCheckContext.AddPositionToCheck(new Point(point.X, point.Y + i));
             }
             return winCheckContext;
         }
 
-        private WinCheckContext GetLeftAxis(Position position)
+        private WinCheckContext GetLeftAxis(Point point)
         {
             var winCheckContext = new WinCheckContext();
             for (int i = 0; i < WinningRangeLength; i++)
             {
-                winCheckContext.AddPositionToCheck(new Position(position.X - i, position.Y + i));
+                winCheckContext.AddPositionToCheck(new Point(point.X - i, point.Y + i));
             }
             return winCheckContext;
         }
 
-        private WinCheckContext GetRightAxis(Position position)
+        private WinCheckContext GetRightAxis(Point point)
         {
             var winCheckContext = new WinCheckContext();
             for (int i = 0; i < WinningRangeLength; i++)
             {
-                winCheckContext.AddPositionToCheck(new Position(position.X + i, position.Y + i));
+                winCheckContext.AddPositionToCheck(new Point(point.X + i, point.Y + i));
             }
             return winCheckContext;
         }

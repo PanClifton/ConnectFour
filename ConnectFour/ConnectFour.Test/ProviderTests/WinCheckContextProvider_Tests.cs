@@ -11,14 +11,14 @@ namespace ConnectFour.Test.ProviderTests
     {
         public static IEnumerable<object[]> GetPoints()
         {
-            yield return new object[] { new Position(1, 5) };
-            yield return new object[] { new Position(2, 5) };
-            yield return new object[] { new Position(3, 5) };
+            yield return new object[] { new Point(1, 5) };
+            yield return new object[] { new Point(2, 5) };
+            yield return new object[] { new Point(3, 5) };
         }
 
         [Theory]
         [MemberData(nameof(GetPoints))]
-        public void Test(Position position)
+        public void Test(Point point)
         {
             var board = new Board(6, 6);
 

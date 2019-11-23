@@ -17,10 +17,10 @@ namespace ConnectFour.Providers
             _board = board;
         }
 
-        public Winner Provide(Position position)
+        public Winner Provide(Point point)
         {
             var winner = new Winner();
-            var winCasesToCheck = _winCheckContextProvider.Provide(position);
+            var winCasesToCheck = _winCheckContextProvider.Provide(point);
             foreach (var winCase in winCasesToCheck)
             {
                 winner.Update(CheckForWin(winCase.PositionsToCheck));
@@ -28,12 +28,12 @@ namespace ConnectFour.Providers
             return winner;
         }
 
-        private Player GetPlayer(Position position)
+        private Player GetPlayer(Point point)
         {
-            return _board.Columns[position.Y]?.GetPlayer(position.X);
+            return _board.Columns[point.Y]?.GetPlayer(point.X);
         }
 
-        private Winner CheckForWin(List<Position> positions)
+        private Winner CheckForWin(List<Point> positions)
         {
             List<Player> players = new List<Player>();
             var winner = new Winner();

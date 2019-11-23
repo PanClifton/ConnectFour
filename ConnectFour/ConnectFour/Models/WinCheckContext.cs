@@ -6,16 +6,16 @@ namespace ConnectFour.Models
 {
     public class WinCheckContext
     {
-        public List<Position> PositionsToCheck { get; private set; }
+        public List<Point> PositionsToCheck { get; private set; }
 
         public WinCheckContext()
         {
-            PositionsToCheck = new List<Position>();
+            PositionsToCheck = new List<Point>();
         }
 
-        public void AddPositionToCheck(Position position)
+        public void AddPositionToCheck(Point point)
         {
-            PositionsToCheck.Add(position);
+            PositionsToCheck.Add(point);
         }
     }
 }

@@ -26,7 +26,7 @@ namespace ConnectFour
             _winChecker = new WinChecker(this);
         }
 
-        public Position Add(Counter counter, int columnNumber)
+        public Point Add(Counter counter, int columnNumber)
         {
             int x = columnNumber;
             int y = 0;
@@ -35,7 +35,7 @@ namespace ConnectFour
                 y = Columns[columnNumber].Add(counter);
             }
 
-            return new Position(x, y);
+            return new Point(x, y);
         }
 
         public void Display()
