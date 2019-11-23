@@ -4,11 +4,11 @@ using ConnectFour.WinLogic.WinCandidatesStrategies;
 
 namespace ConnectFour.WinLogic.Providers
 {
-    public class WinCaseProvider : IWinCaseProvider
+    public class WinCandidateProvider : IWinCandidateProvider
     {
         private readonly List<IWiningCandidatePositionsStrategy> _winCandidatePositionsStrategies;
 
-        public WinCaseProvider(List<IWiningCandidatePositionsStrategy> winingCandidatePositionsStrategies)
+        public WinCandidateProvider(List<IWiningCandidatePositionsStrategy> winingCandidatePositionsStrategies)
         {
             _winCandidatePositionsStrategies = winingCandidatePositionsStrategies;
         }

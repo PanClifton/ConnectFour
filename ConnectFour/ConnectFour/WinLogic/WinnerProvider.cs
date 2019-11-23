@@ -9,17 +9,17 @@ namespace ConnectFour.WinLogic
 {
     public class WinnerProvider
     {
-        private readonly IWinCaseProvider _winCaseProvider;
+        private readonly IWinCandidateProvider _winCandidateProvider;
 
         public WinnerProvider(Board board)
         {
             var factory = new WinCandidatePositionsStrategiesFactory(board.NumberOfRows, board.NumberOfColumns);
-            _winCaseProvider = new WinCaseProvider(factory.Strategies);
+            _winCandidateProvider = new WinCandidateProvider(factory.Strategies);
         }
 
         public Winner GetWinner(Point point)
         {
-            var winCases = _winCaseProvider.Provide(point);
+            var winCases = _winCandidateProvider.Provide(point);
             foreach (var winCase in winCases)
             {
                 
