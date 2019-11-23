@@ -8,13 +8,13 @@ using Xunit;
 
 namespace ConnectFour.Test.ProviderTests
 {
-    public class WinCandidatePositionsProvider_Test
+    public class WinCaseProvider_Test
     {
         [Fact]
         public void Provide_WhenCalled_ShouldProvide()
         {
             var factory = new WinCandidatePositionsStrategiesFactory(6, 6);
-            var sut = new WinCandidatePositionsProvider(factory.Strategies);
+            var sut = new WinCaseProvider(factory.Strategies);
             var result = sut.Provide(new Point(2, 0));
         }
 

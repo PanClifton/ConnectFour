@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using ConnectFour.Models;
 
 namespace ConnectFour
@@ -52,6 +53,17 @@ namespace ConnectFour
             Console.WriteLine(lineUnderHeader);
 
             DisplayContent();
+        }
+
+        public IEnumerable<Player> GetPlayers(List<Point> points)
+        {
+            var players = new List<Player>();
+            foreach (var point in points)
+            {
+                players.Add(Columns[point.Y]?.Counters[point.X]?.Player);
+            }
+
+            return players;
         }
 
         private void DisplayContent()
