@@ -55,12 +55,12 @@ namespace ConnectFour
             DisplayContent();
         }
 
-        public IEnumerable<Player> GetPlayers(List<Point> points)
+        public List<Player> GetPlayers(List<Point> points)
         {
             var players = new List<Player>();
             foreach (var point in points)
             {
-                players.Add(Columns[point.Y]?.Counters[point.X]?.Player);
+                players.Add(Columns[point.X]?.Counters[point.Y]?.Player);
             }
 
             return players;

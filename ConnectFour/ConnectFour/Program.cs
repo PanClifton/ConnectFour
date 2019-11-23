@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading;
 using System.Threading.Tasks;
+using ConnectFour.WinLogic;
 
 namespace ConnectFour
 {
@@ -99,6 +100,8 @@ namespace ConnectFour
 
             Random rnd = new Random();
             int i = 0;
+
+            var winnerProvider = new WinnerProvider(board);
             while (!board.IsFull())
             {
                 i++;
@@ -108,11 +111,17 @@ namespace ConnectFour
                 {
                     Thread.Sleep(TimeSpan.FromMilliseconds(320));
                 }
-
-
                 Console.WriteLine(string.Empty);
                 Console.Clear();
                 board.Display();
+                var winner = winnerProvider.Provide(position);
+                if (winner.IsWinner)
+                {
+                    Console.WriteLine($"We have a winner!!! Congrats {winner.Player.Name}, '{winner.Player.Counter}' !!!");
+                    return Task.CompletedTask;
+                }
+
+            
             }
             return Task.CompletedTask;
         }
