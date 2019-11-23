@@ -9,10 +9,10 @@ namespace ConnectFour
     {
         static void Main(string[] args)
         {
-//            TestTask1();
-//            TestTask2a();
-//            TestTask2e();
-//            TestTask3();
+            //            TestTask1();
+            //            TestTask2a();
+            //            TestTask2e();
+            //            TestTask3();
 
             Main().GetAwaiter().GetResult();
         }
@@ -94,34 +94,39 @@ namespace ConnectFour
             var numberOfColumns = 6;
             var numberOfRows = 6;
             Board board = new Board(numberOfRows, numberOfColumns);
-     
-            Player p1 = new Player("Clive", 'o');
-            Player p2 = new Player("Sharon", 'x');
+
+            Player p1 = new Player("Clive", 'O');
+            Player p2 = new Player("Sharon", 'X');
 
             Random rnd = new Random();
             int i = 0;
 
             var winnerProvider = new WinnerProvider(board);
-            while (!board.IsFull())
+            while (true)
             {
-                i++;
-                var randomColumn = rnd.Next(0, numberOfColumns);
-
-                var position = board.Add(i % 2 == 0 ? new Counter(p1) : new Counter(p2), randomColumn);
+                while (!board.IsFull())
                 {
-                    Thread.Sleep(TimeSpan.FromMilliseconds(320));
-                }
-                Console.WriteLine(string.Empty);
-                Console.Clear();
-                board.Display();
-                var winner = winnerProvider.Provide(position);
-                if (winner.IsWinner)
-                {
-                    Console.WriteLine($"We have a winner!!! Congrats {winner.Player.Name}, '{winner.Player.Counter}' !!!");
-                    return Task.CompletedTask;
+                    i++;
+                    var randomColumn = rnd.Next(0, numberOfColumns);
+
+                    var position = board.Add(i % 2 == 0 ? new Counter(p1) : new Counter(p2), randomColumn);
+                    {
+                        Thread.Sleep(TimeSpan.FromMilliseconds(25));
+                    }
+                    Console.WriteLine(string.Empty);
+                    Console.Clear();
+                    board.Display();
+                    var winner = winnerProvider.Provide(position);
+                    if (winner.IsWinner)
+                    {
+                        Console.WriteLine($"We have a winner!!! Congrats {winner.Player.Name}, '{winner.Player.Counter}' !!!");
+                        break;
+                    }
                 }
 
-            
+                Console.WriteLine("Press enter to close...");
+                Console.ReadLine();
+                board.Clear();
             }
             return Task.CompletedTask;
         }

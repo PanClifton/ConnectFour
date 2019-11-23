@@ -55,6 +55,13 @@ namespace ConnectFour
             DisplayContent();
         }
 
+        public void Clear()
+        {
+            foreach (var column in Columns)
+            {
+                Array.Clear(column.Counters, 0, column.Counters.Length);
+            }
+        }
         public List<Player> GetPlayers(List<Point> points)
         {
             var players = new List<Player>();
@@ -64,19 +71,6 @@ namespace ConnectFour
             }
 
             return players;
-        }
-
-        private void DisplayContent()
-        {
-            for (int i = 0; i < NumberOfRows; i++)
-            {
-                var row = string.Empty;
-                for (int j = 0; j < NumberOfColumns; j++)
-                {
-                    row = row + GetCell(j, Columns[j].DisplayRow(i));
-                }
-                Console.WriteLine(row);
-            }
         }
 
         public bool IsFull()
@@ -105,6 +99,19 @@ namespace ConnectFour
             }
 
             return $"{firstBreak}{value}|";
+        }
+
+        private void DisplayContent()
+        {
+            for (int i = 0; i < NumberOfRows; i++)
+            {
+                var row = string.Empty;
+                for (int j = 0; j < NumberOfColumns; j++)
+                {
+                    row = row + GetCell(j, Columns[j].DisplayRow(i));
+                }
+                Console.WriteLine(row);
+            }
         }
     }
 }
