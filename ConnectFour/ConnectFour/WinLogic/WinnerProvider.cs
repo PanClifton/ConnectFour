@@ -8,8 +8,9 @@ namespace ConnectFour.WinLogic
 {
     public class WinnerProvider
     {
-        private readonly IWinCandidateProvider _winCandidateProvider;
         private readonly Board _board;
+
+        private readonly IWinCandidateProvider _winCandidateProvider;
         private readonly WinCasesAnalyzer _winCasesAnalyzer;
 
         public WinnerProvider(Board board)

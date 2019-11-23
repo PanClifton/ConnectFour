@@ -32,11 +32,6 @@ namespace ConnectFour
             return index;
         }
 
-        public Player GetPlayer(int index)
-        {
-            return Counters[index]?.Player;
-        }
-
         public void Display()
         {
             for (int i = 0; i < NumberOfRows; i++)

@@ -62,6 +62,7 @@ namespace ConnectFour
                 Array.Clear(column.Counters, 0, column.Counters.Length);
             }
         }
+
         public List<Player> GetPlayers(List<Point> points)
         {
             var players = new List<Player>();
