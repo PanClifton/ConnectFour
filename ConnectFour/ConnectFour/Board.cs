@@ -1,14 +1,10 @@
 ﻿using System;
-using System.Linq;
-using System.Reflection.Metadata.Ecma335;
-using ConnectFour.Checkers;
 using ConnectFour.Models;
 
 namespace ConnectFour
 {
     public class Board
     {
-        private WinChecker _winChecker;
         public Column[] Columns { get; }
 
         public int NumberOfRows { get; }
@@ -23,7 +19,7 @@ namespace ConnectFour
             {
                 Columns[i] = new Column(numberOfRows);
             }
-            _winChecker = new WinChecker(this);
+        
         }
 
         public Point Add(Counter counter, int columnNumber)
@@ -97,11 +93,6 @@ namespace ConnectFour
             }
 
             return $"{firstBreak}{value}|";
-        }
-
-        public Winner GetWinner()
-        {
-            return _winChecker.Check();
         }
     }
 }

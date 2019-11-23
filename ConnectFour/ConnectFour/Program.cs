@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Threading;
 using System.Threading.Tasks;
-using ConnectFour.Checkers;
-using ConnectFour.Providers;
 
 namespace ConnectFour
 {
@@ -95,7 +93,7 @@ namespace ConnectFour
             var numberOfColumns = 6;
             var numberOfRows = 6;
             Board board = new Board(numberOfRows, numberOfColumns);
-            var winProvider = new WinProvider(board);
+     
             Player p1 = new Player("Clive", 'o');
             Player p2 = new Player("Sharon", 'x');
 
@@ -115,13 +113,6 @@ namespace ConnectFour
                 Console.WriteLine(string.Empty);
                 Console.Clear();
                 board.Display();
-                //var winner = board.GetWinner();
-                var winner = winProvider.Provide(position);
-                if (winner.IsWinner)
-                {
-                    Console.WriteLine($"We have a winner. {winner.Player} !!!");
-                    return Task.CompletedTask;
-                }
             }
             return Task.CompletedTask;
         }
