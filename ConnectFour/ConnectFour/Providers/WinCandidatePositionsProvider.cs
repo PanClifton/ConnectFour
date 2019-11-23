@@ -4,7 +4,7 @@ using ConnectFour.WinCandidatesStrategies;
 
 namespace ConnectFour.Providers
 {
-    public class WinCandidatePositionsProvider : IWinCandidatePositionsProvider
+    public class WinCandidatePositionsProvider : IWinCaseProvider
     {
         private readonly List<IWiningCandidatePositionsStrategy> _winCandidatePositionsStrategies;
 
@@ -13,14 +13,15 @@ namespace ConnectFour.Providers
             _winCandidatePositionsStrategies = winingCandidatePositionsStrategies;
         }
 
-        public IEnumerable<Point> Provide(Point point)
+        public IEnumerable<WinCase> Provide(Point point)
         {
-            var candidates = new List<Point>();
+            var winCases = new List<WinCase>();
             foreach (var strategy in _winCandidatePositionsStrategies)
             {
-                candidates.AddRange(strategy.GetCandidates(point));
+                var winCase = new WinCase(strategy.GetCandidates(point));
+                winCases.Add(winCase);
             }
-            return candidates;
+            return winCases;
         }
     }
 }

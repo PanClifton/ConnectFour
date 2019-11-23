@@ -10,7 +10,7 @@ namespace ConnectFour.WinCandidatesStrategies
 
         }
 
-        public override IEnumerable<Point> GetCandidates(Point point)
+        public override List<Point> GetCandidates(Point point)
         {
             var pointsToCheck = new List<Point>();
             if (point.Y + WinningRangeLength <= Height 

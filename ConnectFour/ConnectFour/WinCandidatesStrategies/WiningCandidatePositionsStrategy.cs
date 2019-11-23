@@ -16,7 +16,7 @@ namespace ConnectFour.WinCandidatesStrategies
             Length = length;
         }
 
-        public abstract IEnumerable<Point> GetCandidates(Point point);
+        public abstract List<Point> GetCandidates(Point point);
 
     }
 }

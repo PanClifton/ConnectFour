@@ -5,6 +5,6 @@ namespace ConnectFour.WinCandidatesStrategies
 {
     public interface IWiningCandidatePositionsStrategy
     {
-        IEnumerable<Point> GetCandidates(Point point);
+        List<Point> GetCandidates(Point point);
     }
 }

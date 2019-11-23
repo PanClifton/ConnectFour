@@ -6,7 +6,7 @@ namespace ConnectFour.Models
 {
     public class WinCase
     {
-        public List<Point> WinCandidatePositions { get;}
+        public List<Point> WinCandidatePositions { get; }
 
         public WinCase(List<Point> winPositions)
         {

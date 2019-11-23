@@ -3,8 +3,8 @@ using ConnectFour.Models;
 
 namespace ConnectFour.Providers
 {
-    public interface IWinCandidatePositionsProvider
+    public interface IWinCaseProvider
     {
-        IEnumerable<Point> Provide(Point point);
+        IEnumerable<WinCase> Provide(Point point);
     }
 }
