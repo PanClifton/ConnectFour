@@ -3,18 +3,19 @@ namespace ConnectFour.Models
 {
     public class Winner
     {
+        public static Winner NoWinner => new Winner(false);
+
         public bool IsWinner { get; }
         public Player Player { get; }
+       
 
-        public Point Start { get; }
-
-        public Point End { get; }
-
-        public static Winner NoWinner => new Winner(false, default);
-      
-        public Winner(bool isWinner, Player player)
+        public Winner(bool isWinner)
         {
             IsWinner = isWinner;
+        }
+
+        public Winner(bool isWinner, Player player) : this(isWinner)
+        {
             Player = player;
         }
     }
