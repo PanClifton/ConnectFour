@@ -6,14 +6,14 @@ using ConnectFour.Models;
 
 namespace ConnectFour.Strategy
 {
-    public abstract class WiningPositionStrategy : IWiningPositionStrategy
+    public abstract class WiningCandidatePositionsStrategy : IWiningCandidatePositionsStrategy
     {
         protected readonly int Height;
         protected readonly int Length;
 
         protected const int WinningRangeLength = 4;
 
-        protected WiningPositionStrategy(int height, int length)
+        protected WiningCandidatePositionsStrategy(int height, int length)
         {
             Height = height;
             Length = length;

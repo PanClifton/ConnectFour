@@ -5,8 +5,8 @@ using ConnectFour.Models;
 
 namespace ConnectFour.Strategy
 {
-    public interface IWiningPositionStrategy
+    public interface IWiningCandidatePositionsStrategy
     {
-        IEnumerable<Point> GetPoints(Point point);;
+        IEnumerable<Point> GetPoints(Point point);
     }
 }

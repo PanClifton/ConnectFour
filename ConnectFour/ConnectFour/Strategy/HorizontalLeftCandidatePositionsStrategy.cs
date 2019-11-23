@@ -5,9 +5,9 @@ using ConnectFour.Models;
 
 namespace ConnectFour.Strategy
 {
-    public class HorizontalLeftPositionStrategy : WiningPositionStrategy
+    public class HorizontalLeftCandidatePositionsStrategy : WiningCandidatePositionsStrategy
     {
-        public HorizontalLeftPositionStrategy(int height, int length) : base(height, length)
+        public HorizontalLeftCandidatePositionsStrategy(int height, int length) : base(height, length)
         {
 
         }
