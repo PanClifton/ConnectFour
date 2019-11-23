@@ -7,6 +7,6 @@ namespace ConnectFour.Strategy
 {
     public interface IWiningPositionStrategy
     {
-        IEnumerable<Point> GetPoints(Point point);
+        IEnumerable<Point> GetPoints(Point point);;
     }
 }
