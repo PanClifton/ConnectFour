@@ -38,8 +38,10 @@ namespace ConnectFour.WinLogic
 
         private Winner Provide(Point point)
         {
-            var winCandidates = _winCandidateProvider.Provide(point);
             var winCases = new List<WinCase>();
+
+            var winCandidates = _winCandidateProvider.Provide(point);
+  
             foreach (var winCandidate in winCandidates)
             {
                 var players = _board.GetPlayers(winCandidate.WinCandidatePositions);

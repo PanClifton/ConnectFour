@@ -13,19 +13,5 @@
         {
             return Player.Counter.ToString();
         }
-
-        public override bool Equals(object obj)
-        {
-            if (!(obj is Player))
-            {
-                return false;
-            }
-            if (ReferenceEquals(this.Player, ((Counter)obj).Player))
-            {
-                return true;
-            }
-
-            return false;
-        }
     }
 }

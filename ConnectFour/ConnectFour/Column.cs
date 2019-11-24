@@ -51,16 +51,14 @@ namespace ConnectFour
 
         public bool IsFull()
         {
-            // iterujesz przez wszystkie countery
             for (int i = 0; i < Counters.Length; i++)
             {
-                //sprawdzasz czy dany counter o indexie 'i' jest nullem jezeli jest zwracasz false
                 if (Counters[i] == null)
                 {
                     return false;
                 }
             }
-            // przeiterowales przez wszystkie countery nie bylo nulla wiec zwracasz true;
+            
             return true;
         }
     }

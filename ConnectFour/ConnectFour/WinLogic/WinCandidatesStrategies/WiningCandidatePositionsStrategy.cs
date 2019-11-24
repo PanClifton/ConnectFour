@@ -8,7 +8,7 @@ namespace ConnectFour.WinLogic.WinCandidatesStrategies
         protected readonly int Height;
         protected readonly int Length;
 
-        protected const int WinningRangeLength = 3;
+        protected const int WinningRangeLength = 4;
 
         protected WiningCandidatePositionsStrategy(int height, int length)
         {

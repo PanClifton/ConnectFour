@@ -21,7 +21,7 @@ namespace ConnectFour.WinLogic.Analyzer
             return Winner.NoWinner;
         }
 
-        public Winner CheckCase(WinCase winCase)
+        private Winner CheckCase(WinCase winCase)
         {
             var allSame = winCase.Players.TrueForAll(x => x != null && x.Name == winCase.Players[0]?.Name);
             if (allSame)
